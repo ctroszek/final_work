@@ -1,6 +1,6 @@
 import psycopg2
 import pytest
-
+from pages.base_page import BasePage
 
 # @pytest.fixture
 # def create_base():
@@ -10,5 +10,10 @@ import pytest
 #     cursor.execute('CREATE DATABASE postgres')
 #     return db
 
-def test_connect():
-    assert (1, 1) == (1, 1)
+
+class TestConnectToWebApp(BasePage):
+
+    def test_connect(browser):
+        base_page = BasePage(browser)
+        base_page.open_base_page()
+
